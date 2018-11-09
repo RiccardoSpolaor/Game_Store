@@ -17,15 +17,14 @@ if (isset($_SESSION['user'])&&$_SESSION['user'] == 'admin') {
 
         <?php
         try {
-            $database_handler = new PDO (
-                "pgsql:".sprintf(
-                    "host=%s;port=%s;user=%s;password=%s';dbname=%s",
-                     $db["host"],
-                     $db["port"],
-                     $db["user"],
-                     $db["pass"],
-                     ltrim($db["path"], "/")
-                    ));
+            $database_handler = new PDO("pgsql:" . sprintf(
+                "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                $db["host"],
+                $db["port"],
+                $db["user"],
+                $db["pass"],
+                ltrim($db["path"], "/")
+            ));
             $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo $e->getMessage();
