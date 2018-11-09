@@ -60,7 +60,15 @@ if (isset($_SESSION['username'])) {
                 if (!empty ($_POST['username']) && !empty ($_POST['password']) && isset ($_POST['submit'])) {
 
                     try {
-                        $database_handler = new PDO ($dns);
+                        $db = parse_url(getenv("DATABASE_URL"));
+                        $database_handler = new PDO("pgsql:" . sprintf(
+                            "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                            $db["host"],
+                            $db["port"],
+                            $db["user"],
+                            $db["pass"],
+                            ltrim($db["path"], "/")
+                        ));
                         $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     } catch (PDOException $e) {
                         echo $e->getMessage();
