@@ -10,7 +10,7 @@ ob_start();
 session_start();
 
 $db = parse_url(getenv("DATABASE_URL"));
-$dns ="pgsql:" . sprintf(
+$dns ="pgsql:".sprintf(
                     "host=%s;port=%s;user=%s;password=%s';dbname=%s",
                      $db["host"],
                      $db["port"],
