@@ -6,6 +6,7 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 
 include_once '..\lib\cart.php';
 
+ob_start();
 session_start();
 
 $db = parse_url(getenv("DATABASE_URL"));
