@@ -17,7 +17,7 @@ if (isset($_SESSION['user'])&&$_SESSION['user'] == 'admin') {
 
         <?php
         try {
-            $database_handler = new PDO ($dns, 'xfhnwuvgzmwzwj', 'e85237cc7ffa88f77d8519f58908826c27396da6e2944fd1339cd04064d3655d');
+            $database_handler = new PDO ($dns);
             $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo $e->getMessage();
