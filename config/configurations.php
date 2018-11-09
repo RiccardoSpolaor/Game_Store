@@ -22,7 +22,7 @@ $db = parse_url(getenv("DATABASE_URL"));
 
     <title> Negozio Giochi Online </title>
 
-    <link rel="stylesheet" type = "text/css" href="/web/css/style.css" />
+    <link rel="stylesheet" type = "text/css" href="../web/css/style.css" />
 
     <script type="text/javascript">
         window.onload = function cartItems() {
