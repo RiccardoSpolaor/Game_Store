@@ -9,4 +9,4 @@ unset($_SESSION['cart']);
 session_gc();
 session_destroy();
 
-header ('Location: ..\Utils\login.php');
+header ('Location: ..\utils\login.php');
