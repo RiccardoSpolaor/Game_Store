@@ -1,12 +1,12 @@
-<html>
-
-    <?php
+<?php
     include_once "..\config\configurations.php";
 
     if (isset($_SESSION['user'])&&$_SESSION['user'] == 'admin') {
         header ('Location: ..\admin\admin_panel.php');
     }
-    ?>
+?>
+
+<html>
     
     <body>
 
