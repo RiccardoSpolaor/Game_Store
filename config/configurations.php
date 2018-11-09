@@ -9,9 +9,15 @@ include_once '..\lib\cart.php';
 ob_start();
 session_start();
 
-
-$dns = "pgsql:host=ec2-54-217-216-149.eu-west-1.compute.amazonaws.com;port=5432;dbname=dckhpsi2teki9g;user=xfhnwuvgzmwzwj;password=e85237cc7ffa88f77d8519f58908826c27396da6e2944fd1339cd04064d3655d";
-
+$db = parse_url(getenv("DATABASE_URL"));
+$dns ="pgsql:" . sprintf(
+                    "host=%s;port=%s;user=%s;password=%s';dbname=%s",
+                     $db["host"],
+                     $db["port"],
+                     $db["user"],
+                     $db["pass"],
+                     ltrim($db["path"], "/")
+                    );
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
