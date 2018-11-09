@@ -35,7 +35,15 @@ if (!isset($_GET['id']))
                     <?php
 
                     try {
-                        $database_handler = new PDO ($dns);
+                        $db = parse_url(getenv("DATABASE_URL"));
+                        $database_handler = new PDO("pgsql:" . sprintf(
+                            "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                            $db["host"],
+                            $db["port"],
+                            $db["user"],
+                            $db["pass"],
+                            ltrim($db["path"], "/")
+                        ));
                         $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     } catch (PDOException $e) {
                         echo $e->getMessage();
@@ -294,7 +302,15 @@ if (!isset($_GET['id']))
 
                         if (isset($_POST['delete'])) {
                             try {
-                                $database_handler = new PDO ($dns);
+                                $db = parse_url(getenv("DATABASE_URL"));
+                                $database_handler = new PDO("pgsql:" . sprintf(
+                                    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                                    $db["host"],
+                                    $db["port"],
+                                    $db["user"],
+                                    $db["pass"],
+                                    ltrim($db["path"], "/")
+                                ));
                                 $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             } catch (PDOException $e) {
                                 echo $e->getMessage();
@@ -328,7 +344,15 @@ if (!isset($_GET['id']))
 
 
                             try {
-                                $database_handler = new PDO ($dns);
+                                $db = parse_url(getenv("DATABASE_URL"));
+                                $database_handler = new PDO("pgsql:" . sprintf(
+                                    "host=%s;port=%s;user=%s;password=%s;dbname=%s",
+                                    $db["host"],
+                                    $db["port"],
+                                    $db["user"],
+                                    $db["pass"],
+                                    ltrim($db["path"], "/")
+                                ));
                                 $database_handler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                             } catch (PDOException $e) {
                                 echo $e->getMessage();
