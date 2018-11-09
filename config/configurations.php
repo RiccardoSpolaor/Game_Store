@@ -10,7 +10,7 @@ ob_start();
 session_start();
 
 
-$dns = 'pgsql:host=ec2-54-217-216-149.eu-west-1.compute.amazonaws.com;port=5432;dbname=dckhpsi2teki9g;user=xfhnwuvgzmwzwj;password=e85237cc7ffa88f77d8519f58908826c27396da6e2944fd1339cd04064d3655d';
+$dns = 'pgsql:host=ec2-54-217-216-149.eu-west-1.compute.amazonaws.com;dbname=dckhpsi2teki9g';
 
 ?>
 
